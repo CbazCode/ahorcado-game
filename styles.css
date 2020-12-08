@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+nav{
+    align-items: center;
+    background-color: #2C3A47;
+    display: flex;
+    justify-content: center;
+    height: 8vh;
+}
+
+body{
+    background-color: #9AECDB;
+    font-family: Cascadia Code PL;
+}
