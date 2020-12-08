@@ -72,3 +72,50 @@ const creadorLetras = (palabra) => {
         
     }
 }
+
+generarPalabra();
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    letra = obtenerLetra(); 
+    
+    if(letra){
+            actualizarVisibilidad(letra);
+        if(!encontrado ){        
+            contadorFallos++;
+            moverBackground();
+            verificarJuegoPerdido();
+        }else{
+            verificarJuegoGanado();
+            console.log('letras encontradas:', contadorLetrasMostradas);
+        }
+    }else{
+        console.log('No se pudo actualizar visibilidad');   
+    }
+    
+})
+
+
+
+
+const obtenerLetra = () =>{
+    if(valueiInput.value.length === 1 ){
+
+        const letra = valueiInput.value; 
+        valueiInput.value = "";
+        
+        return letra.toUpperCase();
+    
+    }else{
+        //alert con el siguente mensaje 
+        Swal.fire({
+            title: 'Ooops...',
+            text: "Debes ingresar solo un caracter",
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok!'
+          })
+          valueiInput.value = "";
+        return "";
+    } 
+}
