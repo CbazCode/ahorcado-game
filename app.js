@@ -173,3 +173,57 @@ const actualizarVisibilidad = (letra) => {
           })
     }
 }
+
+const moverBackground = () => {
+    divAhorcado.style.backgroundPosition = `-${199*contadorFallos}px 0`
+}
+
+const mostrarPalabra = () => {
+    const vectorL = document.querySelectorAll('.letra');
+    for(i = 0; i < palabraEnJuego.length ; i++){        
+    
+           vectorL[i].classList.add('activate');
+        
+    }
+}
+
+let btnSubmit = document.querySelector('.btn-submit');
+let btnReinicio = document.querySelector('.reinicio');
+
+const verificarJuegoPerdido = () => {
+    if(contadorFallos === 4 ){
+        //alert con el siguente mensaje
+        Swal.fire({
+            title: 'Perdiste !',
+            icon: 'error',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok!'
+          })
+        btnSubmit.style.display = 'none';
+        btnReinicio.style.display = 'inline';
+        valueiInput.setAttribute('disabled','');
+        mostrarPalabra();
+    }
+}
+
+
+const verificarJuegoGanado = () => {
+    if(contadorLetrasMostradas === palabraEnJuego.length){
+        //alert con el siguente mensaje
+        Swal.fire({
+            title: 'Ganaste !',
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok!'
+        })
+        console.log('Ganaste');
+        btnSubmit.style.display = 'none';
+        btnReinicio.style.display = 'inline';
+        valueiInput.setAttribute('disabled','');
+        
+    }
+}
+
+btnReinicio.addEventListener('click', ()=>{
+    window.location.reload();
+})
