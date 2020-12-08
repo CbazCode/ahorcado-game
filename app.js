@@ -119,3 +119,24 @@ const obtenerLetra = () =>{
         return "";
     } 
 }
+
+const letraRepetida = () => {
+    let repeticion = false;
+    if(vectorLetrasEncontradas.length === 0){
+        repeticion = false;
+    }
+    else{
+        vectorLetrasEncontradas.forEach(element => {
+            if(element === letra){
+                encontrado = true;
+                repeticion = true;
+            }else{
+                // if(!repeticion){
+                //     repeticion = false;
+                // }
+                !repeticion && (repeticion = false);
+            }
+        });
+    }
+    return repeticion;
+}
