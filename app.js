@@ -140,3 +140,36 @@ const letraRepetida = () => {
     }
     return repeticion;
 }
+
+const actualizarVisibilidad = (letra) => {
+    //agregar clase activate para mostrar visibilidad de la letra
+    const vectorL = document.querySelectorAll('.letra');
+    let pushear = false;
+    encontrado = false;
+    if(!letraRepetida()){
+        for(i = 0; i < palabraEnJuego.length ; i++){        
+            if(vectorL[i].innerHTML === letra ){
+                vectorL[i].classList.add('activate');
+
+                //bandera para pushear al vectorLetrasEncontradas
+                pushear = true;
+                contadorLetrasMostradas++;          
+                encontrado = true;
+            }
+            
+        }
+        
+        if(pushear){            
+            vectorLetrasEncontradas.push(letra);
+        }
+     }
+    else{
+        Swal.fire({
+            title: 'Ooops...',
+            text: "Letra repetida",
+            icon: 'error',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok!'
+          })
+    }
+}
