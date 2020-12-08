@@ -38,3 +38,7 @@ const generarPalabra = () =>{
       estaJugado = true;
       creadorLetras(palabraEnJuego);
 }
+
+const obtenerNumeroRandom= (min, max) =>{
+    return Math.floor(Math.random() * (max - min)) + min;
+}
